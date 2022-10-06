@@ -1,11 +1,8 @@
 function main(bckColor, circleColor) {
     var canvas = document.getElementsByTagName("CANVAS")[0],
       ctx = canvas.getContext("2d");
-    if (canvas.height) {
-      canvas.height = 800;
-    }
     canvas.width = 600;
-    canvas.height = document.documentElement.scrollHeight;
+    canvas.height = 800;
     var cW = canvas.width,
       cH = canvas.height;
     
@@ -21,7 +18,7 @@ function main(bckColor, circleColor) {
     ctx.fill();
     ctx.closePath();
   }
-  var colorArray = ['red', 'green', 'yellow', 'blue', 'pink', 'brown', 'orange']
+  var colorArray = ['green', 'blue']
   var changeColor = setInterval(function() {
   
     let bckColor = colorArray[Math.floor(Math.random() * 7 + 1)];

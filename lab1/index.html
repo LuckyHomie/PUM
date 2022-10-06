@@ -2,7 +2,28 @@
 <html>
    <body>
       <p>
-         <canvas></canvas>
+         <canvas id="myCanvas" width="800" height="600" style="border:1px solid #000000;">
+         </canvas> 
+         <script>
+            var canvas = document.getElementsByTagName("CANVAS")[0],
+               ctx = canvas.getContext("2d");
+            canvas.width = 600;
+            canvas.height = 800;
+            var cW = canvas.width,
+               cH = canvas.height;
+            
+            ctx.fillStyle = bckColor || "#000";
+            ctx.fillRect(0, 0, cW, cH);
+            ctx.fill();
+         
+            ctx.beginPath();
+            ctx.fillStyle = circleColor || "#FFF";
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = "#FFF";
+            ctx.arc(cW / 2, cH / 2, 50, 0, 2 * Math.PI, false);
+            ctx.fill();
+            ctx.closePath();
+         </script> 
          <a href="https://luckyhomie.github.io/PUM/lab1/index.html">html</a>
 		   <a href="https://github.com/LuckyHomie/PUM/tree/main/lab1">kod</a>
       </p>
