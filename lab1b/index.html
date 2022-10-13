@@ -8,37 +8,24 @@
          <script type="text/javascript">
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
-            var radius = 50;
-            var counter = 0;
-            function delay(time) {
-               return new Promise(resolve => setTimeout(resolve, time));
-            }
-            function draw()
-            {
-               ctx.beginPath();
-               ctx.arc(250,250,radius,0,2*Math.PI,true);
-               ctx.strokeStyle="blue";
-               ctx.stroke();
+            var x = 100,
+            y = 75,
+            // Radii of the white glow.
+            innerRadius = 5,
+            outerRadius = 70,
+            // Radius of the entire circle.
+            radius = 60;
 
-               counter+=1;
-               if (counter % 2 == 0)
-               {
-                  ctx.fillStyle = "green";
-                  ctx.fill();
-                  requestAnimationFrame(draw);
-               }
-               else 
-               {
-                  ctx.fillStyle = "blue";
-                  ctx.fill();
-                  requestAnimationFrame(draw);
-               }
-               delay(1000);
-            }
-            while(1)
-            {
-               draw();
-            }
+            var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
+            gradient.addColorStop(0, 'blue');
+            gradient.addColorStop(0.5, 'white');
+            gradient.addColorStop(1, 'green');
+
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
          </script> 
    </body>
 </html>
