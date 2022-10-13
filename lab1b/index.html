@@ -6,21 +6,31 @@
          </canvas> 
          <script>
             var canvas = document.getElementById("myCanvas");
-               ctx = canvas.getContext("2d");
+            ctx = canvas.getContext("2d");
             canvas.width = 600;
             canvas.height = 800;
             var cW = canvas.width,
                cH = canvas.height;
-            
-            ctx.fillStyle = "blue" || "#000";
-            ctx.fillRect(0, 0, cW, cH);
-            ctx.fill();
+
+            var x = 100,
+            y = 75,
+            // Radii of the white glow.
+            innerRadius = 5,
+            outerRadius = 70,
+            // Radius of the entire circle.
+            radius = 60;
+         
          
             ctx.beginPath();
             ctx.fillStyle = "green" || "#FFF";
             ctx.shadowBlur = 5;
             ctx.shadowColor = "#FFF";
+            var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
+            gradient.addColorStop(0, 'green');
+            gradient.addColorStop(1, 'blue');
             ctx.arc(cW / 2, cH / 2, 50, 0, 2 * Math.PI, false);
+            ctx.fillStyle = gradient;
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
             ctx.fill();
             ctx.closePath();
          </script> 
