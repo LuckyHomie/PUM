@@ -16,15 +16,19 @@
             // Radius of the entire circle.
             radius = 60;
 
-            var gradient = ctx.createRadialGradient(x, y, innerRadius, x, y, outerRadius);
-            gradient.addColorStop(0, 'blue');
-            gradient.addColorStop(0.5, 'white');
-            gradient.addColorStop(1, 'green');
-
             ctx.arc(x, y, radius, 0, 2 * Math.PI);
 
-            ctx.fillStyle = gradient;
-            ctx.fill();
+            var value = 20;
+            while(1)
+            {
+               value++;
+               ctx.fillStyle = 'rgb(0, value, 250 - value)';
+               ctx.fill();
+               if(value == 250)
+               {
+                  value = 20;
+               }
+            }
             
          </script> 
    </body>
