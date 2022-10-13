@@ -8,8 +8,11 @@
          <script type="text/javascript">
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
-            var radius = 0;
-
+            var radius = 50;
+            var counter = 0;
+            function delay(time) {
+               return new Promise(resolve => setTimeout(resolve, time));
+            }
             function draw()
             {
                ctx.beginPath();
@@ -17,13 +20,25 @@
                ctx.strokeStyle="blue";
                ctx.stroke();
 
-               radius+=0.1;
-               if (radius < 200)
+               counter+=1;
+               if (counter % 2 == 0)
                {
+                  ctx.fillStyle = "green";
+                  ctx.fill();
                   requestAnimationFrame(draw);
                }
+               else 
+               {
+                  ctx.fillStyle = "blue";
+                  ctx.fill();
+                  requestAnimationFrame(draw);
+               }
+               delay(1000);
             }
-            draw();
+            while(1)
+            {
+               draw();
+            }
          </script> 
    </body>
 </html>
