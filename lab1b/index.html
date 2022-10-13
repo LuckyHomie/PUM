@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Canvas</title>
+   <body>
+         <canvas id="myCanvas" width="600" height="800" style="border:1px solid #000000;">
+         </canvas> 
+         <script type="text/javascript">
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var radius = 0;
+
+            function draw()
+            {
+               ctx.beginPath();
+               ctx.arc(250,250,radius,0,2*Math.PI,true);
+               ctx.strokeStyle="blue";
+               ctx.stroke();
+
+               radius+=0.1;
+               if (radius < 200)
+               {
+                  requestAnimationFrame(draw);
+               }
+            }
+            draw();
+         </script> 
+   </body>
+</html>
