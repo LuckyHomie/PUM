@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Canvas</title>
    <body>
+      <p>
          <canvas id="myCanvas" width="600" height="800" style="border:1px solid #000000;">
          </canvas> 
-         <script type="text/javascript">
+         <script>
             var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
-            var x = 100,
-            y = 75,
-            // Radii of the white glow.
-            innerRadius = 5,
-            outerRadius = 70,
-            // Radius of the entire circle.
-            radius = 60;
-
-            ctx.arc(x, y, radius, 0, 2 * Math.PI);
-
-            var value = 20;
-            while(1)
-            {
-               value++;
-               ctx.fillStyle = 'rgb(0, value, 250 - value)';
-               ctx.fill();
-               if(value == 250)
-               {
-                  value = 20;
-               }
-            }
+               ctx = canvas.getContext("2d");
+            canvas.width = 600;
+            canvas.height = 800;
+            var cW = canvas.width,
+               cH = canvas.height;
             
+            ctx.fillStyle = "blue" || "#000";
+            ctx.fillRect(0, 0, cW, cH);
+            ctx.fill();
+         
+            ctx.beginPath();
+            ctx.fillStyle = "green" || "#FFF";
+            ctx.shadowBlur = 5;
+            ctx.shadowColor = "#FFF";
+            ctx.arc(cW / 2, cH / 2, 50, 0, 2 * Math.PI, false);
+            ctx.fill();
+            ctx.closePath();
          </script> 
+      </p>
    </body>
 </html>
