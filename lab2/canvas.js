@@ -10,7 +10,7 @@ function Ball(x, y, radius, color) {
     this.color = color;
 
     this.update = function() {
-        this.y += 1;
+        //this.y += 1;
         this.draw();
     };
 
@@ -38,13 +38,11 @@ setTimeout(function () {
         c.fillRect(600,200,200,100);
     }, 4000);
 setTimeout(function () {
-    c.fillRect(700,100,100,100);
+        c.fillRect(700,100,100,100);
     }, 5000);
 var ball;
 setTimeout(function () {
-    c.beginPath();
-        c.arc(750, 50, 50, 0, Math.PI * 2, false);
-        c.fillStyle = 'red';
-        c.fill();
-        c.closePath();
+        ball = new Ball(750,50,50,'red');
+        ball.update();
     }, 6000);
+
