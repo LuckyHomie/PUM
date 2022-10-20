@@ -6,17 +6,17 @@ canvas.height = 600;
 var c = canvas.getContext('2d');
 
 setTimeout(function () {
-        c.fillRect(0,100,100,500);
+        c.fillRect(300,500,500,100);
     }, 1000);
 setTimeout(function () {
-        c.fillRect(100,200,100,400);
+        c.fillRect(400,400,400,100);
     }, 2000);
 setTimeout(function () {
-        c.fillRect(200,300,100,300);
+        c.fillRect(500,300,300,100);
     }, 3000);
 setTimeout(function () {
-        c.fillRect(300,400,100,200);
+        c.fillRect(600,200,200,100);
     }, 4000);
 setTimeout(function () {
-    c.fillRect(400,500,100,100);
-}, 5000);
+    c.fillRect(700,100,100,100);
+    }, 5000);
